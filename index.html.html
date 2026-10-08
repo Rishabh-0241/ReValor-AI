@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReValor AI — Waste to Wealth Intelligence</title>
+<style>
+:root{
+--navy:#081827;--navy2:#102b43;--green:#23a66f;--green2:#65d89f;--mint:#e9f8f0;
+--bg:#f3f6f8;--card:#fff;--text:#142333;--muted:#708091;--line:#dfe6eb;
+--amber:#d99a2d;--red:#d95d5d;--blue:#2f8294;--shadow:0 14px 45px rgba(8,24,39,.09)
+}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text)}
+button,input,select{font:inherit}button{cursor:pointer}
+.top{height:70px;background:rgba(8,24,39,.97);color:#fff;display:flex;align-items:center;padding:0 30px;position:sticky;top:0;z-index:50}
+.brand{display:flex;gap:11px;align-items:center;font-weight:850;font-size:20px}.logo{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,#67dfa3,#159361);display:grid;place-items:center;color:#062217;font-weight:950}
+.brand small{display:block;color:#91a7b8;font-size:8px;letter-spacing:1.3px;margin-top:1px}
+.nav{margin-left:auto;display:flex;gap:4px}.nav button{border:0;background:transparent;color:#aebdca;padding:10px 13px;border-radius:9px;font-size:12px}.nav button:hover,.nav button.active{background:#19344c;color:#fff}
+.status{margin-left:15px;border-left:1px solid #294257;padding-left:16px;font-size:10px;color:#78dba5}.dot{display:inline-block;width:7px;height:7px;background:#55d78d;border-radius:50%;margin-right:5px;box-shadow:0 0 0 4px rgba(85,215,141,.12)}
+.hero{background:linear-gradient(125deg,#081827,#12324c 55%,#0c503a);color:#fff;padding:58px 7vw 65px;overflow:hidden;position:relative}.hero:before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;right:-180px;top:-280px;background:rgba(101,216,159,.08)}
+.hero-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.08fr .92fr;gap:65px;align-items:center;position:relative}
+.badge{display:inline-flex;border:1px solid rgba(101,216,159,.35);background:rgba(101,216,159,.09);color:#7ae3aa;padding:8px 12px;border-radius:99px;font-size:9px;font-weight:850;letter-spacing:1px}
+.hero h1{font-size:54px;line-height:1;letter-spacing:-2.3px;margin:18px 0 16px}.hero h1 span{color:#6ee0a5}
+.hero p{font-size:16px;line-height:1.7;color:#c4d2de;max-width:620px}.actions{display:flex;gap:10px;margin-top:25px}.btn{border:0;border-radius:10px;padding:12px 17px;font-size:12px;font-weight:800}.primary{background:var(--green);color:#fff}.primary:hover{background:#1b915f}.white{background:#fff;color:var(--navy)}.soft{background:#edf7f2;color:#16734e}
+.live-card{background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:20px;box-shadow:0 25px 60px rgba(0,0,0,.13)}
+.live-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.live-top b{font-size:13px}.live-top span{font-size:9px;color:#7ae3aa;background:rgba(101,216,159,.1);padding:5px 8px;border-radius:99px}
+.ai-msg{background:#fff;color:var(--text);border-radius:14px 14px 14px 5px;padding:13px;font-size:11px;line-height:1.5}.ai-msg strong{color:var(--green)}.mini-input{margin-top:9px;background:#19344c;border:1px solid #315068;border-radius:10px;padding:10px;color:#aebdca;font-size:10px}
+.container{max-width:1180px;margin:auto;padding:40px 28px 70px}.section-title h2{margin:0;font-size:24px}.section-title p{margin:5px 0 20px;color:var(--muted);font-size:12px}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.feature{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 5px 18px rgba(8,24,39,.035)}.ico{width:34px;height:34px;background:var(--mint);color:var(--green);display:grid;place-items:center;border-radius:9px;font-weight:900;margin-bottom:12px}.feature h3{font-size:12px;margin:0 0 7px}.feature p{font-size:11px;line-height:1.5;color:var(--muted);margin:0}
+#app{display:none}.workspace{max-width:1240px;margin:auto;padding:25px 25px 60px}.workspace-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.workspace-head h2{font-size:24px;margin:0}.workspace-head p{margin:4px 0 0;color:var(--muted);font-size:11px}
+.shell{display:grid;grid-template-columns:315px 1fr 320px;gap:13px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}.phead{padding:15px 17px;border-bottom:1px solid var(--line)}.phead h3{font-size:13px;margin:0}.phead p{font-size:9.5px;color:var(--muted);margin:4px 0 0}.form{padding:15px 17px}.field{margin-bottom:12px}.field label{display:block;font-size:9px;font-weight:850;color:#617080;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px}input,select{width:100%;border:1px solid #d8e0e7;border-radius:8px;padding:9px;background:#fbfcfd;color:var(--text);font-size:11px;outline:none}input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(35,166,111,.1)}
+.range{display:grid;grid-template-columns:1fr 45px;gap:8px;align-items:center}.range b{text-align:right;color:var(--green);font-size:11px}.analyze{width:100%;margin-top:3px}.tiny{font-size:8.5px;line-height:1.45;color:#7b8792;margin-top:10px}
+.center{min-height:660px}.empty{height:660px;display:grid;place-items:center;text-align:center;padding:30px}.empty .symbol{width:58px;height:58px;border-radius:16px;background:var(--mint);color:var(--green);display:grid;place-items:center;font-size:24px;margin:0 auto 13px}.empty h3{font-size:17px;margin:0 0 6px}.empty p{max-width:370px;color:var(--muted);font-size:11px;line-height:1.55}
+.result{padding:15px}.rec{background:linear-gradient(125deg,var(--navy),#173c56);border-radius:12px;padding:16px;color:#fff;display:flex;justify-content:space-between;gap:15px}.eyebrow{font-size:8px;color:#70dda3;font-weight:900;letter-spacing:.8px}.rec h2{font-size:20px;margin:6px 0 4px}.rec p{font-size:10px;color:#b9cad7;line-height:1.5;margin:0}.ring{width:62px;height:62px;border-radius:50%;border:5px solid rgba(101,216,159,.35);display:grid;place-items:center;flex:0 0 auto}.ring strong{font-size:18px}
+.factors{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:10px 0}.factor{border:1px solid var(--line);border-radius:9px;padding:9px}.factor span{font-size:8px;color:var(--muted);display:block}.factor strong{font-size:17px;display:block;margin-top:2px}.bar{height:4px;background:#e8edf1;border-radius:9px;margin-top:5px;overflow:hidden}.bar i{display:block;height:100%;background:var(--green)}
+.tabs{display:flex;gap:4px;margin:10px 0}.tab{border:0;background:#edf1f4;color:#6b7787;padding:7px 9px;border-radius:7px;font-size:9px;font-weight:850}.tab.active{background:var(--navy);color:#fff}.tabbody{display:none}.tabbody.active{display:block}
+.pathways{display:grid;gap:6px}.path{display:grid;grid-template-columns:27px 1fr 45px;gap:8px;align-items:center;border:1px solid var(--line);border-radius:9px;padding:8px}.path.top{background:#f2fbf6;border-color:#bce7d0}.rank{width:25px;height:25px;border-radius:7px;background:#eef1f4;display:grid;place-items:center;font-size:9px;font-weight:900}.top .rank{background:#d8f2e4;color:#16734e}.path strong{font-size:10px}.path small{display:block;color:var(--muted);font-size:8px;margin-top:2px}.pscore{text-align:right;color:var(--green);font-weight:900;font-size:10px}.explain{background:#eff9f3;border:1px solid #ccebd9;border-radius:9px;padding:10px;font-size:9.5px;line-height:1.5;margin-top:8px}.explain b{color:#14734c}
+table{width:100%;border-collapse:collapse;font-size:8.5px}th,td{padding:7px 5px;border-bottom:1px solid var(--line);text-align:left}th{font-size:7.5px;color:var(--muted);text-transform:uppercase}td:not(:first-child),th:not(:first-child){text-align:right}.good{color:var(--green);font-weight:900}
+.impact{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.impact .item{border:1px solid var(--line);border-radius:9px;padding:9px}.item span{font-size:8px;color:var(--muted)}.item strong{font-size:14px;display:block;margin:3px 0}.item small{font-size:7.5px;color:var(--muted)}
+.ai-panel{min-height:660px}.ai-head{display:flex;align-items:center;gap:9px}.ai-avatar{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#5cdaa0,#1b9463);display:grid;place-items:center;color:#062217;font-weight:950;font-size:12px}.ai-head strong{font-size:12px}.ai-head small{display:block;color:#7b8997;font-size:8px;margin-top:2px}.online{margin-left:auto;font-size:8px;color:var(--green)}.chat{height:520px;overflow:auto;padding:13px;background:#f8fafb}.bubble{max-width:91%;padding:10px;border-radius:10px;margin-bottom:8px;font-size:9.5px;line-height:1.5}.bot{background:#fff;border:1px solid var(--line);border-radius:10px 10px 10px 3px}.user{background:var(--navy);color:#fff;margin-left:auto;border-radius:10px 10px 3px 10px}.bubble .tag{display:inline-block;font-size:7px;color:var(--green);font-weight:900;margin-bottom:4px;letter-spacing:.5px}.quick{display:flex;flex-wrap:wrap;gap:5px;padding:9px;border-top:1px solid var(--line)}.quick button{border:1px solid #cfe1d8;background:#f3faf6;color:#1b7651;border-radius:99px;padding:6px 8px;font-size:8px}.chat-input{display:flex;gap:6px;padding:9px;border-top:1px solid var(--line)}.chat-input input{font-size:9px}.send{width:36px;border:0;background:var(--green);color:#fff;border-radius:8px;font-weight:900}
+.disclaimer{background:#fff8e7;border:1px solid #efdfb6;color:#755718;padding:9px;border-radius:8px;font-size:8.5px;line-height:1.45;margin-top:9px}
+.summary{display:grid;grid-template-columns:1fr 1fr;gap:7px}.summary .s{background:#f7f9fa;padding:9px;border-radius:8px}.s span{display:block;font-size:7.5px;color:var(--muted);font-weight:850;text-transform:uppercase}.s p{font-size:8.5px;line-height:1.4;margin:4px 0 0}
+.footer{background:var(--navy);color:#9fb0be;text-align:center;font-size:9px;padding:20px}
+@media(max-width:1050px){.shell{grid-template-columns:280px 1fr}.ai-panel{grid-column:1/-1;min-height:400px}.chat{height:280px}.features{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){.shell{grid-template-columns:1fr}.hero-grid{grid-template-columns:1fr}.hero h1{font-size:43px}.nav,.status{display:none}.factors{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="brand"><div class="logo">R</div><div>ReValor<small>WASTE TO WEALTH INTELLIGENCE</small></div></div>
+ <nav class="nav"><button class="active" onclick="home()">Overview</button><button onclick="workspace()">Analyze Waste</button></nav>
+ <div class="status"><span class="dot"></span>System ready</div>
+</header>
+
+<section id="home">
+ <div class="hero">
+  <div class="hero-grid">
+   <div>
+    <div class="badge">AI + PROCESS ENGINEERING + CIRCULAR ECONOMY</div>
+    <h1>Don't just manage waste.<br><span>Recover its value.</span></h1>
+    <p>ReValor is an explainable waste valorization decision-support platform. Enter a waste stream, compare feasible recovery pathways and understand the value, impact and assumptions behind the recommendation.</p>
+    <div class="actions"><button class="btn primary" onclick="workspace()">Start Waste Analysis →</button><button class="btn white" onclick="document.getElementById('why').scrollIntoView({behavior:'smooth'})">Explore platform</button></div>
+   </div>
+   <div class="live-card">
+    <div class="live-top"><b>ReValor AI Assistant</b><span>● ONLINE</span></div>
+    <div class="ai-msg"><strong>ReValor AI</strong><br>Hi! I can help you evaluate a waste stream. Tell me what waste you have, its quantity and any known characteristics.</div>
+    <div class="mini-input">e.g. “We have 1,000 kg/day food waste with high moisture…”</div>
+    <div class="flow" style="margin-top:14px">
+      <div class="flow-item"><div class="flow-num">1</div><div><strong>Understand</strong><small>Characterize the waste</small></div></div>
+      <div class="flow-item"><div class="flow-num">2</div><div><strong>Compare</strong><small>Generate multiple pathways</small></div></div>
+      <div class="flow-item"><div class="flow-num">3</div><div><strong>Explain</strong><small>Recommend with assumptions</small></div></div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="container" id="why">
+  <div class="section-title"><h2>One platform. Four decision layers.</h2><p>Designed around the functional modules defined in the ReValor hackathon proposal.</p></div>
+  <div class="features">
+   <div class="feature"><div class="ico">01</div><h3>Waste Input</h3><p>Capture waste type, quantity, composition, moisture and current disposal route.</p></div>
+   <div class="feature"><div class="ico">02</div><h3>Recommendation Engine</h3><p>Apply engineering-aware constraints, pathway scoring and AI-assisted explanation.</p></div>
+   <div class="feature"><div class="ico">03</div><h3>Comparison Dashboard</h3><p>Compare resource recovery, environmental, economic and practicality factors.</p></div>
+   <div class="feature"><div class="ico">04</div><h3>Impact + Decision Summary</h3><p>Show indicative scenario estimates, assumptions and the next validation step.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="app">
+ <div class="workspace">
+  <div class="workspace-head"><div><h2>Waste Valorization Intelligence</h2><p>Turn a waste scenario into an explainable recovery decision.</p></div><button class="btn soft" onclick="home()">← Overview</button></div>
+  <div class="shell">
+   <aside class="panel">
+    <div class="phead"><h3>Waste Input</h3><p>Enter the characteristics you know.</p></div>
+    <div class="form">
+     <div class="field"><label>Waste type</label><select id="type" onchange="defaults()"><option>Food / Organic waste</option><option>Agricultural waste</option><option>Plastic waste</option><option>Industrial waste</option><option>Mixed municipal waste</option></select></div>
+     <div class="field"><label>Quantity (kg/day)</label><input id="qty" type="number" value="1000" min="1"></div>
+     <div class="field"><label>Moisture</label><div class="range"><input id="mo" type="range" min="0" max="100" value="70" oninput="sync('mo','mov')"><b id="mov">70%</b></div></div>
+     <div class="field"><label>Organic fraction</label><div class="range"><input id="org" type="range" min="0" max="100" value="80" oninput="sync('org','orgv')"><b id="orgv">80%</b></div></div>
+     <div class="field"><label>Contamination</label><select id="cont"><option>Low</option><option>Medium</option><option>High</option></select></div>
+     <div class="field"><label>Current disposal</label><select id="disp"><option>Landfill</option><option>Open disposal</option><option>Incineration</option><option>Mixed / unknown</option></select></div>
+     <button class="btn primary analyze" onclick="run()">Analyze & Ask ReValor AI →</button>
+     <div class="tiny">Prototype output is decision support only. Scores and impact indicators are illustrative until calibrated with real waste/process datasets and validated engineering assumptions.</div>
+    </div>
+   </aside>
+
+   <main class="panel center">
+    <div id="empty" class="empty"><div><div class="symbol">✦</div><h3>Ready for a waste-to-value decision</h3><p>Enter a waste scenario. ReValor will characterize it, generate candidate pathways, rank the trade-offs and explain the recommendation through the AI assistant.</p></div></div>
+    <div id="results" class="result" style="display:none">
+      <div class="rec"><div><div class="eyebrow">REVALOR AI RECOMMENDATION • DEMO SCENARIO</div><h2 id="recName">Anaerobic Digestion</h2><p id="recReason"></p></div><div class="ring"><strong id="overall">85</strong></div></div>
+      <div class="factors" id="factors"></div>
+      <div class="tabs"><button class="tab active" onclick="tab('rank',this)">Pathway ranking</button><button class="tab" onclick="tab('impact',this)">Impact & value</button><button class="tab" onclick="tab('summary',this)">Decision summary</button></div>
+      <div id="rank" class="tabbody active">
+       <div class="pathways" id="paths"></div>
+       <div class="explain" id="explain"></div>
+      </div>
+      <div id="impact" class="tabbody">
+       <div class="impact" id="impactCards"></div>
+       <div style="margin-top:10px"><table><thead><tr><th>Pathway</th><th>Recovery</th><th>Environment</th><th>Economic</th><th>Practicality</th><th>Overall</th></tr></thead><tbody id="table"></tbody></table></div>
+      </div>
+      <div id="summary" class="tabbody">
+       <div class="summary" id="summaryCards"></div>
+       <div class="disclaimer"><b>Validation boundary:</b> ReValor does not replace detailed plant design, process simulation or engineering validation. The production system would use representative facility data, expert review and validated assumptions.</div>
+      </div>
+    </div>
+   </main>
+
+   <aside class="panel ai-panel">
+    <div class="phead">
+      <div class="ai-head"><div class="ai-avatar">AI</div><div><strong>ReValor AI Assistant</strong><small>Engineering-aware decision copilot</small></div><span class="online">● ONLINE</span></div>
+    </div>
+    <div class="chat" id="chat">
+      <div class="bubble bot"><span class="tag">REVALOR AI</span><br>Tell me about your waste stream. I can help you understand which recovery pathways are worth comparing and why.</div>
+      <div class="bubble bot"><span class="tag">TIP</span><br>Try the demo scenario: <b>1,000 kg/day food / organic waste</b>.</div>
+    </div>
+    <div class="quick"><button onclick="ask('Why is this pathway recommended?')">Why this route?</button><button onclick="ask('What are the alternatives?')">Show alternatives</button><button onclick="ask('What should I validate next?')">Next validation</button></div>
+    <div class="chat-input"><input id="chatInput" placeholder="Ask ReValor about this scenario…" onkeydown="if(event.key==='Enter')send()"><button class="send" onclick="send()">↑</button></div>
+   </aside>
+  </div>
+ </div>
+</section>
+<footer class="footer">ReValor • Waste to Wealth • AI + Process Engineering + Circular Economy • Functional prototype</footer>
+
+<script>
+const $=x=>document.getElementById(x);
+function workspace(){$('home').style.display='none';$('app').style.display='block';scrollTo({top:0,behavior:'smooth'});document.querySelectorAll('.nav button').forEach((b,i)=>b.classList.toggle('active',i===1))}
+function home(){$('app').style.display='none';$('home').style.display='block';scrollTo({top:0,behavior:'smooth'});document.querySelectorAll('.nav button').forEach((b,i)=>b.classList.toggle('active',i===0))}
+function sync(a,b){$(b).textContent=$(a).value+'%'}
+function defaults(){let d={'Food / Organic waste':[70,80,'Low'],'Agricultural waste':[55,75,'Low'],'Plastic waste':[5,5,'Medium'],'Industrial waste':[35,25,'Medium'],'Mixed municipal waste':[45,45,'High']}[$('type').value];$('mo').value=d[0];$('org').value=d[1];$('cont').value=d[2];sync('mo','mov');sync('org','orgv')}
+function clamp(x){return Math.max(0,Math.min(100,x))}
+function addBot(text,tag='REVALOR AI'){let d=document.createElement('div');d.className='bubble bot';d.innerHTML='<span class="tag">'+tag+'</span><br>'+text;$('chat').appendChild(d);$('chat').scrollTop=$('chat').scrollHeight}
+function addUser(text){let d=document.createElement('div');d.className='bubble user';d.textContent=text;$('chat').appendChild(d);$('chat').scrollTop=$('chat').scrollHeight}
+function run(){
+ let type=$('type').value, q=+$('qty').value||1000, m=+$('mo').value, o=+$('org').value, c=$('cont').value;
+ let penalty=c==='Low'?5:c==='Medium'?15:28;
+ let p=[
+ {n:'Anaerobic Digestion',s:35+o*.62+m*.22-penalty,w:'High organic content and moisture support a biological conversion route worth evaluating.'},
+ {n:'Composting',s:48+o*.43+m*.15-penalty*.35,w:'Organic fraction provides strong compatibility with a biological recovery route.'},
+ {n:'Bioenergy',s:42+o*.30+(100-m)*.28-penalty*.2,w:'Energy recovery is worth comparing, with moisture affecting practicality.'},
+ {n:'Recycling',s:50+(100-m)*.18+(100-o)*.38-penalty*.5,w:'Material recovery becomes stronger when non-organic material is available and contamination is controlled.'},
+ {n:'Material Recovery',s:45+(100-o)*.32+(100-m)*.12-penalty*.35,w:'A recovery route for streams containing recoverable material fractions.'},
+ {n:'Useful Products',s:42+o*.20+(100-penalty)*.18,w:'Conversion into useful products requires deeper feedstock and process validation.'}
+ ];
+ if(type==='Plastic waste'){p[0].s-=35;p[3].s+=15;p[4].s+=10}
+ if(type==='Industrial waste')p[4].s+=8;
+ p=p.map(x=>({...x,s:Math.round(clamp(x.s))})).sort((a,b)=>b.s-a.s);
+ let top=p[0],alt=p[1], rec=Math.round(top.s);
+ let f={recovery:clamp(Math.round(rec+(o-50)*.08)),environment:clamp(Math.round(rec+(c==='Low'?7:c==='Medium'?0:-7))),economic:clamp(Math.round(rec-5+(q>=1000?4:0))),practical:clamp(Math.round(rec-2+(c==='Low'?5:c==='Medium'?0:-7)))};
+ let overall=Math.round((f.recovery+f.environment+f.economic+f.practical)/4);
+ $('empty').style.display='none';$('results').style.display='block';$('recName').textContent=top.n;$('overall').textContent=overall;$('recReason').textContent=top.w+' Alternative: '+alt.n+'.';
+ $('factors').innerHTML=[['Resource Recovery',f.recovery],['Environmental',f.environment],['Economic',f.economic],['Practicality',f.practical]].map(x=>`<div class="factor"><span>${x[0]}</span><strong>${x[1]}</strong><div class="bar"><i style="width:${x[1]}%"></i></div></div>`).join('');
+ $('paths').innerHTML=p.map((x,i)=>`<div class="path ${i===0?'top':''}"><div class="rank">${i+1}</div><div><strong>${x.n}</strong><small>${x.w}</small></div><div class="pscore">${x.s}</div></div>`).join('');
+ $('explain').innerHTML='<b>How ReValor reached this:</b> The prototype combines waste characteristics with transparent pathway scoring. The current scenario is <b>'+q.toLocaleString()+' kg/day</b>, <b>'+m+'% moisture</b>, <b>'+o+'% organic fraction</b> and <b>'+c.toLowerCase()+' contamination</b>. These inputs influence pathway compatibility. The AI assistant explains the result; it does not hide the scoring logic.';
+ let div=Math.round(q*(.72+(f.recovery-70)/250)), res=Math.round(q*(.35+(f.recovery-60)/300)), val=Math.round(q*(.08+f.economic/1000));
+ $('impactCards').innerHTML=[['Waste considered',q.toLocaleString()+' kg/day','User scenario'],['Indicative diversion',div.toLocaleString()+' kg/day','Scenario estimate'],['Resource recovery proxy',res.toLocaleString()+' kg/day','Scenario estimate'],['Value comparison index','₹'+val.toLocaleString()+'/day','Illustrative index'],['Pathways compared',p.length,'Prototype shortlist'],['Top score',top.s+'/100','Illustrative score']].map(x=>`<div class="item"><span>${x[0]}</span><strong>${x[1]}</strong><small>${x[2]}</small></div>`).join('');
+ $('table').innerHTML=p.slice(0,5).map((x,i)=>{let r=clamp(Math.round(x.s+(i===0?2:0))),e=clamp(Math.round(x.s+(i<2?3:-3))),ec=clamp(Math.round(x.s+(q>=1000?2:-2))),pr=clamp(Math.round(x.s-(c==='High'?8:0))),ov=Math.round((r+e+ec+pr)/4);return `<tr><td><b>${x.n}</b></td><td>${r}</td><td>${e}</td><td>${ec}</td><td>${pr}</td><td class="${i===0?'good':''}">${ov}</td></tr>`}).join('');
+ $('summaryCards').innerHTML=[['Recommended route',top.n+' — '+top.s+'/100 illustrative score'],['Alternative',alt.n+' — compare before final selection'],['Key drivers',`${o}% organic • ${m}% moisture • ${c} contamination • ${q.toLocaleString()} kg/day`],['Next validation','Check representative waste data, facility constraints, local processing options and techno-economic assumptions.']].map(x=>`<div class="s"><span>${x[0]}</span><p>${x[1]}</p></div>`).join('');
+ addBot(`I've analyzed the scenario. <b>${top.n}</b> currently ranks highest in this illustrative model. The strongest drivers are <b>${o}% organic fraction</b> and <b>${m}% moisture</b>. I would still compare <b>${alt.n}</b> before making a final engineering decision.`);
+ addBot(`I can now explain the trade-offs, show the alternative pathways, estimate scenario-level resource/value indicators, or tell you what data should be validated next.`, 'NEXT STEP');
+}
+function tab(id,b){document.querySelectorAll('.tabbody').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');b.classList.add('active')}
+function ask(q){addUser(q);setTimeout(()=>{let name=$('recName').textContent;if(q.includes('Why'))addBot(`<b>${name}</b> ranks highest because the current waste characteristics have stronger compatibility with this pathway in the transparent prototype score. The recommendation is not a black box — the four factor scores above show the trade-off.`);else if(q.includes('alternatives'))addBot('The dashboard compares multiple routes instead of locking you into one: recycling, material recovery, composting, anaerobic digestion, bioenergy and useful-product conversion. The next-ranked option is shown as the first alternative.');else addBot('For the next validation step, check representative waste composition, moisture variability, contamination, quantity consistency, facility/process constraints and the economic assumptions. Detailed plant design remains outside the prototype scope.');},350)}
+function send(){let x=$('chatInput').value.trim();if(!x)return;addUser(x);$('chatInput').value='';setTimeout(()=>{let l=x.toLowerCase();if(l.includes('recommend')||l.includes('best'))ask('Why is this pathway recommended?');else if(l.includes('alternative'))ask('What are the alternatives?');else if(l.includes('validate')||l.includes('next'))ask('What should I validate next?');else addBot('I can help with pathway recommendation, trade-offs, alternatives, assumptions and next validation steps. Run the waste analysis first for a scenario-specific answer.');},250)}
+</script>
+</body>
+</html>
